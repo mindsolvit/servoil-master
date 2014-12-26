@@ -1,0 +1,91 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE mapper PUBLIC '-//mybatis.org//DTD Mapper 3.0//EN'
+  'http://mybatis.org/dtd/mybatis-3-mapper.dtd'>
+
+<mapper namespace='com.gravitant.analytics.dao.BillingDataMapper'>
+
+	<insert id="insertUserMonthlyCostData" parameterType="map">
+		INSERT INTO USER_MONTHLY_COST_DATA
+		(id_user,invoiceId,payerAccountId,linkedAccountId,recordType,recordId,billingPeriodStartDate,billingPeriodEndDate,invoiceDate,payerAccountName,linkedAccountName,taxationAddress,payerPONumber,productCode,productName,sellerOfRecord,usageType,operation,availabilityZone,rateId,itemDescription,usageStartDate,usageEndDate,usageQuantity,blendedRate,currencyCode,costBeforeTax,credits,taxAmount,taxType,totalCost,userName,userWorkLoadType,resourceType,gcuValue,uniqueColumn,newLine,deltaCost,filePulledDate,filePulledAt)
+		values
+		<foreach collection="billingDataList" item="element" open="("
+			close=")" separator="),("> <!-- index="index"> -->
+			#{userId},#{element.invoiceId},#{element.payerAccountId},#{element.linkedAccountId},#{element.recordType},#{element.recordId},#{element.billingPeriodStartDate},#{element.billingPeriodEndDate},#{element.invoiceDate},#{element.payerAccountName},
+			#{element.linkedAccountName},#{element.taxationAddress},#{element.payerPONumber},#{element.productCode},#{element.productName},#{element.sellerOfRecord},#{element.usageType},#{element.operation},#{element.availabilityZone},#{element.rateId},#{element.itemDescription},#{element.usageStartDate},#{element.usageEndDate},#{element.usageQuantity},#{element.blendedRate},
+			#{element.currencyCode},#{element.costBeforeTax},#{element.credits},#{element.taxAmount},#{element.taxType},#{element.totalCost},#{element.userName},#{element.userWorkLoadType},#{element.resourceType},#{element.gcuValue},#{element.uniqueColumn},#{element.newLine},#{element.deltaCost},#{element.filePulledDate},#{element.filePulledAt}
+		</foreach>		
+	</insert>
+
+	<insert id="insertUserDailyCostData" parameterType="map">
+		INSERT USER_DAILY_COST_DATA
+		(invoice_Id,payer_Account_Id,linked_Account_Id,record_Type,record_Id,billing_Start_Dt,billing_End_Dt,invoice_Dt,payer_Account_Name,linked_Account_Name,taxation_Address,
+		payer_PON_Number,product_Code,product_Name,seller_Of_Record,usage_Type,operation,availability_Zone,rate_Id,item_Desc,usage_Start_Dt,usage_End_Dt,usage_Quantity,
+		blended_Rate,currency_Code,cost_Before_Tax,credits,tax_Amount,tax_Type,total_Cost,user_Name,user_Work_Load_Type,resource_Type,gcu_Value,unique_item,new_item,delta_Cost,
+		file_Pulled_Dt)
+		values
+		<foreach collection="billingDataList" item="element" open="("
+			close=")" separator="),("> <!-- index="index"> -->
+			#{element.invoiceId},#{element.payerAccountId},#{element.linkedAccountId},#{element.recordType},#{element.recordId},#{element.billingPeriodStartDate},#{element.billingPeriodEndDate},#{element.invoiceDate},#{element.payerAccountName},
+			#{element.linkedAccountName},#{element.taxationAddress},#{element.payerPONumber},#{element.productCode},#{element.productName},#{element.sellerOfRecord},#{element.usageType},#{element.operation},#{element.availabilityZone},#{element.rateId},#{element.itemDescription},#{element.usageStartDate},#{element.usageEndDate},#{element.usageQuantity},#{element.blendedRate},
+			#{element.currencyCode},#{element.costBeforeTax},#{element.credits},#{element.taxAmount},#{element.taxType},#{element.totalCost},#{element.userName},#{element.userWorkLoadType},#{element.resourceType},#{element.gcuValue},#{element.uniqueColumn},#{element.newLine},#{element.deltaCost},#{element.filePulledDate}
+			
+		</foreach>		
+	</insert>
+
+
+	<insert id="inserUserDailySummary" parameterType="map">
+		INSERT INTO USER_DAILY_SUMMARY_DATA
+		(payer_account_id, payer_account_name, linked_account_id, linked_Account_name,  summary_dt, total_cost_to_dt, tot_gcu_to_dt, summary_delta_cost , summary_ema, budget_check_counter)
+		values
+		<foreach collection="daySummaryList" item="element" open="("
+			close=")" separator="),("> <!-- index="index"> -->
+			#{element.payerAccountId}, #{element.payerAccountName} ,#{element.linkedAccountId} , #{element.linkedAccountName} ,#{element.summaryDate},#{element.totalCostToDt},#{element.totalGcuToDt},#{element.summDeltaCost},#{element.summEMA},#{element.budgetCheckCounter}
+		</foreach>		
+	</insert>
+	
+	
+	<insert id="insertLinkedAccounts" parameterType="map">
+		INSERT INTO LINKED_ACCOUNT
+		(payer_account_id,linked_account_id,linked_account_name,budget,notification_count,created_ts)
+		values
+		<foreach collection="linkedAccountsToInsert" item="element" open="("
+			close=")" separator="),("> <!-- index="index"> -->
+			#{element.payerAccountId},#{element.linkedAccountId} , #{element.linkedAccountName} , #{element.budget}, #{element.notificationCount}, #{element.createdTs}
+		</foreach>		
+	</insert>
+
+
+
+
+	<!-- <insert id="insertBillingDataListMonthly" parameterType="map">
+		INSERT INTO USER_MONTHLY_COST_DATA
+		(id_user,invoiceId,payerAccountId,linkedAccountId,recordType,recordId,billingPeriodStartDate,billingPeriodEndDate,invoiceDate,payerAccountName,linkedAccountName,taxationAddress,payerPONumber,productCode,productName,sellerOfRecord,usageType,operation,availabilityZone,rateId,itemDescription,usageStartDate,usageEndDate,usageQuantity,blendedRate,currencyCode,costBeforeTax,credits,taxAmount,taxType,totalCost,userName,userWorkLoadType,resourceType,gcuValue,uniqueColumn,newLine,deltaCost,fileModifiedAt) values
+		<foreach collection="billingDataList" item="element"  open="(" close=")" separator="),("> index="index">
+			#{userId},#{element.invoiceId},#{element.payerAccountId},#{element.linkedAccountId},#{element.recordType},#{element.recordId},#{element.billingPeriodStartDate},#{element.billingPeriodEndDate},#{element.invoiceDate},#{element.payerAccountName},
+			#{element.linkedAccountName},#{element.taxationAddress},#{element.payerPONumber},#{element.productCode},#{element.productName},#{element.sellerOfRecord},#{element.usageType},#{element.operation},#{element.availabilityZone},#{element.rateId},#{element.itemDescription},#{element.usageStartDate},#{element.usageEndDate},#{element.usageQuantity},#{element.blendedRate},
+			#{element.currencyCode},#{element.costBeforeTax},#{element.credits},#{element.taxAmount},#{element.taxType},#{element.totalCost},#{element.userName},#{element.userWorkLoadType},#{element.resourceType},#{element.gcuValue},#{element.uniqueColumn},#{element.newLine},#{element.deltaCost},#{element.fileModifiedAt}
+		</foreach>
+		SELECT * FROM dual
+	</insert>
+	
+	<insert id="insertBillingDataListDaily" parameterType="map">
+		INSERT USER_DAILY_COST_DATA
+		(id_user,invoiceId,payerAccountId,linkedAccountId,recordType,recordId,billingPeriodStartDate,billingPeriodEndDate,invoiceDate,payerAccountName,linkedAccountName,taxationAddress,payerPONumber,productCode,productName,sellerOfRecord,usageType,operation,availabilityZone,rateId,itemDescription,usageStartDate,usageEndDate,usageQuantity,blendedRate,currencyCode,costBeforeTax,credits,taxAmount,taxType,totalCost,userName,userWorkLoadType,resourceType,gcuValue,uniqueColumn,newLine,deltaCost,fileModifiedAt) values
+		<foreach collection="billingDataList" item="element"  open="(" close=")" separator="),("> index="index">
+			#{userId},#{element.invoiceId},#{element.payerAccountId},#{element.linkedAccountId},#{element.recordType},#{element.recordId},#{element.billingPeriodStartDate},#{element.billingPeriodEndDate},#{element.invoiceDate},#{element.payerAccountName},
+			#{element.linkedAccountName},#{element.taxationAddress},#{element.payerPONumber},#{element.productCode},#{element.productName},#{element.sellerOfRecord},#{element.usageType},#{element.operation},#{element.availabilityZone},#{element.rateId},#{element.itemDescription},#{element.usageStartDate},#{element.usageEndDate},#{element.usageQuantity},#{element.blendedRate},
+			#{element.currencyCode},#{element.costBeforeTax},#{element.credits},#{element.taxAmount},#{element.taxType},#{element.totalCost},#{element.userName},#{element.userWorkLoadType},#{element.resourceType},#{element.gcuValue},#{element.uniqueColumn},#{element.newLine},#{element.deltaCost},#{element.fileModifiedAt}
+		</foreach>
+		SELECT * FROM dual
+	</insert>
+	
+	
+	<insert id="insertDaySummary" parameterType="map">
+		INSERT INTO USER_DAILY_SUMMARY_TABLE
+		(id_user,summaryDate,summaryLinkedAccountName,summaryPayerAccountName,sumTotalCost,summarySumGcu,recordInsertedDate,summDeltaCost,summEMA) values
+		<foreach collection="daySummaryList" item="element"  open="(" close=")" separator="),("> index="index">
+			#{userId},#{element.summaryDate},#{element.summaryLinkedAccountName},#{element.summaryPayerAccountName},#{element.sumTotalCost},#{element.summarySumGcu},#{element.recordInsertedDate},#{element.summDeltaCost},#{element.summEMA}
+		</foreach>
+		SELECT * FROM dual
+	</insert> -->
+</mapper>

@@ -1,0 +1,157 @@
+/* @font-face kit by Fonts2u (http://www.fonts2u.com) */ @font-face {font-family:"Open Sans Light";src:url("OpenSans-Light.eot?") format("eot"),url("OpenSans-Light.woff") format("woff"),url("OpenSans-Light.ttf") format("truetype"),url("OpenSans-Light.svg#OpenSans-Light") format("svg");font-weight:normal;font-style:normal;}
+
+
+
+.log-in-out{
+	-webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    border-radius: 8px;	
+}
+
+.loginbox{
+	background: -webkit-radial-gradient( rgb(63,125,154),rgb(71,141,173), rgb(63,125,154)); /* Safari */
+	background: -o-radial-gradient( rgb(63,125,154),rgb(71,141,173), rgb(63,125,154)); /* For Opera 11.1 to 12.0 */
+	background: -moz-radial-gradient( rgb(63,125,154),rgb(71,141,173), rgb(63,125,154)); /* For Firefox 3.6 to 15 */
+	background: radial-gradient( rgb(63,125,154),rgb(71,141,173), rgb(63,125,154)); /* Standard syntax (must be last) */
+	width:25%;
+	padding: 5px;
+	text-align: center;
+	vertical-align: middle;
+	height:26px;
+	margin: 0%;
+	color: #ffffff;
+	font-family: Open Sans Light;
+	font-size: 15pt;
+	font-weight: bold;
+	/* -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    border-radius: 8px;	 */
+    border-top-left-radius:15px;
+    border-bottom-left-radius:15px;
+    margin-right: 0%;
+    border-right: 0px solid  rgb(63,125,154);
+    position: absolute;
+    float: left;
+}
+
+.signupbox{
+	background: -webkit-radial-gradient( rgb(127,204,235),rgb(121,195,231), rgb(127,204,255)); /* Safari */
+	background: -o-radial-gradient( rgb(127,204,235),rgb(121,195,231), rgb(127,204,255)); /* For Opera 11.1 to 12.0 */
+	background: -moz-radial-gradient( rgb(127,204,235),rgb(121,195,231), rgb(127,204,255)); /* For Firefox 3.6 to 15 */
+	background: radial-gradient( rgb(127,204,235),rgb(121,195,231), rgb(127,204,255)); /* Standard syntax (must be last) */
+	width:25%;
+	padding: 5px;
+	text-align: center;
+	vertical-align: middle;
+	height:26px;
+	color: #ffffff;
+	margin: 0%;
+	font-family: Open Sans Light;
+	font-size: 15pt;
+	font-weight: bold;
+	/* -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    border-radius: 8px;	 */
+    border-top-right-radius:15px;
+	border-bottom-right-radius:15px;
+	margin-left: 0%;
+	margin-right: 53%;
+	position: absolute;
+	float: right;
+	left: 25%;
+}
+
+td{
+	margin: 0%;
+	padding: 0%;
+	
+}
+
+.email{
+	-webkit-border-radius: 7px;
+    -moz-border-radius:7px;
+    border-radius: 7px;	
+	background: -webkit-radial-gradient( rgb(130,204,242),rgb(140,214,252), rgb(130,204,242)); /* Safari */
+	background: -o-radial-gradient( rgb(130,204,242),rgb(140,214,252), rgb(130,204,242)); /* For Opera 11.1 to 12.0 */
+	background: -moz-radial-gradient( rgb(130,204,242),rgb(140,214,252), rgb(130,204,242)); /* For Firefox 3.6 to 15 */
+	background: radial-gradient( rgb(130,204,242),rgb(140,214,252), rgb(130,204,242)); /* Standard syntax (must be last) */
+	height:35px;
+	width:450px;
+	border: 1px solid rgb(130,204,242);
+	font-family: Open Sans Light;
+	font-size: 15pt;
+	font-weight: bold;
+	padding: 3px;
+	color: #101;
+	border: 1px solid rgb(100,204,222)
+}
+
+.loginDiv{
+	width:500px;
+	
+}
+
+.loginContent{
+	width:100%;
+	position: relative;
+	height:40px;
+}
+
+.password{
+	-webkit-border-radius: 7px;
+    -moz-border-radius:7px;
+    border-radius: 7px;	
+	background: -webkit-radial-gradient( rgb(130,204,242),rgb(140,214,252), rgb(130,204,242)); /* Safari */
+	background: -o-radial-gradient( rgb(130,204,242),rgb(140,214,252), rgb(130,204,242)); /* For Opera 11.1 to 12.0 */
+	background: -moz-radial-gradient( rgb(130,204,242),rgb(140,214,252), rgb(130,204,242)); /* For Firefox 3.6 to 15 */
+	background: radial-gradient( rgb(130,204,242),rgb(140,214,252), rgb(130,204,242)); /* Standard syntax (must be last) */
+	height:35px;
+	width:200px;
+	border: 1px solid rgb(130,204,242);
+	font-family: Open Sans Light;
+	font-size: 15pt;
+	font-weight: bold;
+	padding: 3px;
+	color: #101;
+}
+
+.loginbox:HOVER {
+	background: -webkit-radial-gradient( rgb(100,174,212),rgb(100,174,212), rgb(100,174,212)); /* Safari */
+	background: -o-radial-gradient( rgb(100,174,212),rgb(100,174,212), rgb(100,174,212)); /* For Opera 11.1 to 12.0 */
+	background: -moz-radial-gradient( rgb(100,174,212),rgb(100,174,212), rgb(100,174,212)); /* For Firefox 3.6 to 15 */
+	background: radial-gradient( rgb(100,174,212),rgb(100,174,212), rgb(100,174,212)); /* Standard syntax (must be last) */
+	
+}
+
+.forgotPassword{
+	font-family: Open Sans Light;
+	font-size: 13pt;
+	font-weight: bold;
+	color:#555;
+	padding: 5px;
+	padding-left: 75px;
+}
+
+.signInButton{
+	background: -webkit-radial-gradient( rgb(215,224,235),rgb(205,214,225), rgb(215,224,235)); /* Safari */
+	background: -o-radial-gradient( rgb(215,224,235),rgb(205,214,225), rgb(215,224,235)); /* For Opera 11.1 to 12.0 */
+	background: -moz-radial-gradient( rgb(215,224,235),rgb(205,214,225), rgb(215,224,235)); /* For Firefox 3.6 to 15 */
+	background: radial-gradient( rgb(215,224,235),rgb(205,214,225), rgb(215,224,235)); /* Standard syntax (must be last) */
+	position: relative;
+	float: right;
+	height:40px;
+	-webkit-border-radius: 8px;
+    -moz-border-radius:8px;
+    border-radius: 8px;	
+	width: 20%;
+	text-align: center;
+	margin-right: 9%;
+	font-family: Open Sans Light;
+	font-size: 20pt;
+	font-weight: bold;
+	border: 1px solid rgb(225,234,245);
+	color:#777;
+	cursor: pointer;
+	
+}
+
